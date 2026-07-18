@@ -108,6 +108,12 @@ fn main() -> anyhow::Result<()> {
         .subcommand(
             SubCommand::with_name("init")
                 .about("Initialize tests dependencies and directory")
+                .arg(
+                    Arg::with_name("compiler")
+                        .long("compiler")
+                        .default_value("elm")
+                        .help("Use a custom path to an Elm executable"),
+                )
                 .setting(AppSettings::DisableVersion),
         )
         .subcommand(
